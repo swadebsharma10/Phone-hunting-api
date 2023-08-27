@@ -1,10 +1,10 @@
 
-const loadPhones = async(searchPhone, isShowALL) =>{
+const loadPhones = async(searchPhone ='13' , isShowALL) =>{
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchPhone}`);
     const data = await res.json();
     const phones = data.data;
     displayPhone(phones, isShowALL);
-    console.log(phones)
+    // console.log(phones)
    
 }
 
@@ -24,7 +24,7 @@ const displayPhone = (phones , isShowALL)=>{
         showAllContainer.classList.add('hidden')
     }
 
-    console.log('isShowAll', isShowALL)
+    // console.log('isShowAll', isShowALL)
 
     // display only first 12 phones if not showAll
     if(!isShowALL){
@@ -36,7 +36,7 @@ const displayPhone = (phones , isShowALL)=>{
 
 
     phones.forEach(phone => {
-        // console.log(phone)
+        console.log(phone)
         const phoneCard = document.createElement('div');
         phoneCard.classList= 'card bg-gray-200 p-4 shadow-xl';
         phoneCard.innerHTML =`
@@ -47,7 +47,7 @@ const displayPhone = (phones , isShowALL)=>{
         <h2 class="card-title">${phone.phone_name}</h2>
         <p>If a dog chews shoes whose shoes does he choose?</p>
         <div class="card-actions">
-          <button class="btn btn-primary">Buy Now</button>
+          <button onclick ="handleShowDetails('${phone.slug}'); show_detail_modal.showModal()" class="btn btn-primary">Show Details</button>
         </div>
       </div>
         `;
@@ -57,6 +57,15 @@ const displayPhone = (phones , isShowALL)=>{
     // hide loading spinner
     toggleLoadingSpinner(false);
 } 
+
+ // handleShow Details
+ const handleShowDetails = async(id) =>{
+    console.log('details btn is clicked', id);
+    // load single phone data
+    const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
+    const data  = await res.json();
+    console.log(data.data)
+}
 
 
 // handle search button

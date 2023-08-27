@@ -18,9 +18,9 @@
         Phone Hunting
       </h1>
     </header>
-    <main>
+    <main class="container mx-auto">
       <!-- phones section -->
-      <section class="container mx-auto">
+      <section>
         <!-- search result -->
         <h3 class="text-4xl text-center font-medium mb-8">
           --Search your phone--
@@ -58,7 +58,22 @@
         <!-- show all button -->
       </section>
       <!-- phones section -->
+      <!-- modal show -->
+      <!-- Open the modal using ID.showModal() method -->
+
+      <dialog id="show_detail_modal" class="modal modal-bottom sm:modal-middle">
+        <form method="dialog" class="modal-box">
+          <h3 class="font-bold text-lg">Hello!</h3>
+          <p class="py-4">Press ESC key or click the button below to close</p>
+          <div class="modal-action">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </div>
+        </form>
+      </dialog>
+      <!-- modal show -->
     </main>
+
     <footer></footer>
 
     <!-- script -->
