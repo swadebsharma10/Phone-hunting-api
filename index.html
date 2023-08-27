@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hunting Phone</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header class="my-10">
+      <h1 class="text-5xl font-medium text-center text-blue-500">
+        Phone Hunting
+      </h1>
+    </header>
+    <main>
+      <!-- phones section -->
+      <section class="container mx-auto">
+        <!-- search result -->
+        <div class="text-center">
+          <input
+            type="text"
+            placeholder="Search..."
+            class="input input-bordered input-primary w-full max-w-xs"
+          />
+          <button class="btn btn-primary">Search</button>
+        </div>
+        <!-- search result -->
+        <!-- container -->
+        <div
+          id="phone-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4"
+        ></div>
+        <!-- container -->
+      </section>
+      <!-- phones section -->
+    </main>
+    <footer></footer>
+
+    <!-- script -->
+    <script src="js/phone.js"></script>
+  </body>
+</html>
