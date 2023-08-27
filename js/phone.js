@@ -98,4 +98,4 @@ const handleShowAll =() =>{
     handleSearch(true);
 }
 
-loadPhones()
+// loadPhones()
