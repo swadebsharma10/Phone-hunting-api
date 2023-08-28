@@ -47,7 +47,7 @@ const displayPhone = (phones , isShowALL)=>{
         <h2 class="card-title">${phone.phone_name}</h2>
         <p>If a dog chews shoes whose shoes does he choose?</p>
         <div class="card-actions">
-          <button onclick ="handleShowDetails('${phone.slug}'); show_detail_modal.showModal()" class="btn btn-primary">Show Details</button>
+          <button onclick ="handleShowDetails('${phone.slug}');" class="btn btn-primary">Show Details</button>
         </div>
       </div>
         `;
@@ -64,7 +64,35 @@ const displayPhone = (phones , isShowALL)=>{
     // load single phone data
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
     const data  = await res.json();
-    console.log(data.data)
+    const phone = data.data;
+    
+    // call this function
+    showPhoneDetails(phone)
+}
+
+// handle showPhone Details
+const  showPhoneDetails =(phone) =>{
+    console.log(phone);
+
+    // const phoneName = document.getElementById('phone-name');
+    // phoneName.innerText = phone.name;
+
+    const showDetailsContainer = document.getElementById('show-details-container');
+    showDetailsContainer.innerHTML = `
+    <div class="card">
+  <figure><img src="${phone.image}" alt="Shoes" /></figure>
+  <div class="card-body">
+    <h2 class="card-title text-3xl font-medium">Name: ${phone.name}</h2>
+    <h2 class="card-title text-xl font-medium">Storage: ${phone.mainFeatures?.storage}</h2>
+    <h2 class="card-title text-xl font-medium">Brand: ${phone.brand}</h2>
+  </div>
+</div>
+    
+    `
+        
+
+    // show all modal
+    show_detail_modal.showModal();
 }
 
 
